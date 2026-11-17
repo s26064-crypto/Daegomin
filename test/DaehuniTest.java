@@ -114,8 +114,9 @@ public class DaehuniTest {
         DaehuniWindow window = new DaehuniWindow(new Daehuni(new Random(1)));
         window.worryField.setText("  내가 연애를 할 수 있을까요?  ");
         window.ask();
-        String shown = window.answerArea.getText();
-        check(shown.startsWith("Q. 내가 연애를 할 수 있을까요?\n\n대훈이: \""), "화면에 질문과 대훈이 대답이 나온다");
+        check(window.questionLabel.getText().equals("Q. 내가 연애를 할 수 있을까요?")
+                && window.questionLabel.isVisible(), "화면에 질문이 나온다");
+        check(window.answerArea.getText().startsWith("대훈이: \""), "화면에 대훈이 대답이 나온다");
         check(window.worryField.getText().isEmpty(), "물어본 뒤 입력칸이 비워진다");
     }
 
@@ -124,6 +125,7 @@ public class DaehuniTest {
         window.worryField.setText("   ");
         window.ask();
         check(window.answerArea.getText().equals("대훈이: 고민을 적어야 대답해 주지!"), "화면에서도 빈 고민이면 다시 물어본다");
+        check(!window.questionLabel.isVisible(), "빈 고민이면 질문 줄을 숨긴다");
     }
 
     private static String runWith(String input) throws IOException {

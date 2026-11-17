@@ -43,6 +43,9 @@ java -cp out DaehuniTest
 | 파일 | 하는 일 |
 |------|---------|
 | `src/DaehuniWindow.java` | 창 버전 (Swing) |
+| `src/RoundButton.java` | 알약 모양 둥근 버튼 |
+| `src/RoundTextField.java` | 알약 모양 입력칸 (예시 문구, 클릭하면 파란 테두리) |
+| `src/RoundPanel.java` | 대답이 들어가는 둥근 카드 |
 | `src/Main.java` | 콘솔 버전: 고민을 입력받고 대훈이 답을 출력하는 반복 |
 | `src/Daehuni.java` | 답변 목록, 랜덤 뽑기, 고민에 대한 대답 |
 | `test/DaehuniTest.java` | JUnit 없이 돌아가는 테스트 |
