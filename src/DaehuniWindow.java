@@ -15,11 +15,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 /**
- * 빵빵이의 고민 해결소 화면 버전.
- * 고민을 적고 엔터를 치거나 '물어보기'를 누르면 빵빵이가 대답한다.
- * 실행: java -cp out BbangBbangiWindow
+ * 대훈이의 고민 해결소 화면 버전.
+ * 고민을 적고 엔터를 치거나 '물어보기'를 누르면 대훈이가 대답한다.
+ * 실행: java -cp out DaehuniWindow
  */
-public class BbangBbangiWindow extends JPanel {
+public class DaehuniWindow extends JPanel {
 
     private static final Color BREAD = new Color(255, 243, 214);
     private static final Color CRUST = new Color(150, 90, 40);
@@ -27,18 +27,18 @@ public class BbangBbangiWindow extends JPanel {
 
     final JTextField worryField = new JTextField();
     final JButton askButton = new JButton("물어보기");
-    final JTextArea answerArea = new JTextArea("빵빵이: 무슨 고민 있어? 적어 봐!");
+    final JTextArea answerArea = new JTextArea("대훈이: 무슨 고민 있어? 적어 봐!");
 
-    private final BbangBbangi bbangBbangi;
+    private final Daehuni daehuni;
 
-    BbangBbangiWindow(BbangBbangi bbangBbangi) {
-        this.bbangBbangi = bbangBbangi;
+    DaehuniWindow(Daehuni daehuni) {
+        this.daehuni = daehuni;
 
         setLayout(new BorderLayout(0, 16));
         setBackground(BREAD);
         setBorder(BorderFactory.createEmptyBorder(20, 24, 24, 24));
 
-        JLabel title = new JLabel("빵빵이의 고민 해결소");
+        JLabel title = new JLabel("대훈이의 고민 해결소");
         title.setFont(new Font(Font.DIALOG, Font.BOLD, 24));
         title.setForeground(CRUST);
 
@@ -86,10 +86,10 @@ public class BbangBbangiWindow extends JPanel {
         askButton.addActionListener(e -> ask());  // 버튼 클릭
     }
 
-    /** 입력칸에 적힌 고민을 빵빵이에게 물어보고, 대답을 화면에 보여 준다. */
+    /** 입력칸에 적힌 고민을 대훈이에게 물어보고, 대답을 화면에 보여 준다. */
     void ask() {
         String worry = worryField.getText().strip();
-        String reply = "빵빵이: " + bbangBbangi.reply(worry);
+        String reply = "대훈이: " + daehuni.reply(worry);
         answerArea.setText(worry.isEmpty() ? reply : "Q. " + worry + "\n\n" + reply);
         worryField.setText("");
         worryField.requestFocusInWindow();
@@ -103,8 +103,8 @@ public class BbangBbangiWindow extends JPanel {
                 // 기본 모양 그대로 써도 괜찮다
             }
 
-            BbangBbangiWindow content = new BbangBbangiWindow(new BbangBbangi());
-            JFrame frame = new JFrame("빵빵이의 고민 해결소");
+            DaehuniWindow content = new DaehuniWindow(new Daehuni());
+            JFrame frame = new JFrame("대훈이의 고민 해결소");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setContentPane(content);
             frame.setSize(560, 360);

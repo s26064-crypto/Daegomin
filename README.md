@@ -1,14 +1,14 @@
-# 빵빵이의 고민 해결소
+# 대훈이의 고민 해결소
 
-고민을 적으면 빵빵이가 해결책 하나를 랜덤으로 알려 주는 자바 프로그램이에요. 창(화면) 버전과 콘솔 버전이 있어요.
+고민을 적으면 대훈이가 해결책 하나를 랜덤으로 알려 주는 자바 프로그램이에요. 창(화면) 버전과 콘솔 버전이 있어요.
 고민 내용과 상관없이 110개의 답변 중 하나가 나오고, 같은 답은 연달아 나오지 않아요.
 
 ```
-=== 빵빵이의 고민 해결소 ===
-고민을 적어 주면 빵빵이가 해결책을 알려 줄게!
+=== 대훈이의 고민 해결소 ===
+고민을 적어 주면 대훈이가 해결책을 알려 줄게!
 
 고민을 적어 줘 (끝내려면 '끝') > 내가 연애를 할 수 있을까요?
-빵빵이: "될 놈은 된다. 그리고 너는 될 놈이다."
+대훈이: "될 놈은 된다. 그리고 너는 될 놈이다."
 ```
 
 ## 실행 방법
@@ -22,7 +22,7 @@ javac -d out src/*.java
 **창 버전:** 고민을 적고 엔터를 치거나 `물어보기`를 누르면 돼요.
 
 ```bash
-java -cp out BbangBbangiWindow
+java -cp out DaehuniWindow
 ```
 
 **콘솔 버전:** `끝`을 입력하면 끝나요.
@@ -35,14 +35,14 @@ java -cp out Main
 
 ```bash
 javac -d out src/*.java test/*.java
-java -cp out BbangBbangiTest
+java -cp out DaehuniTest
 ```
 
 ## 파일 구조
 
 | 파일 | 하는 일 |
 |------|---------|
-| `src/BbangBbangiWindow.java` | 창 버전 (Swing) |
-| `src/Main.java` | 콘솔 버전: 고민을 입력받고 빵빵이 답을 출력하는 반복 |
-| `src/BbangBbangi.java` | 답변 목록, 랜덤 뽑기, 고민에 대한 대답 |
-| `test/BbangBbangiTest.java` | JUnit 없이 돌아가는 테스트 |
+| `src/DaehuniWindow.java` | 창 버전 (Swing) |
+| `src/Main.java` | 콘솔 버전: 고민을 입력받고 대훈이 답을 출력하는 반복 |
+| `src/Daehuni.java` | 답변 목록, 랜덤 뽑기, 고민에 대한 대답 |
+| `test/DaehuniTest.java` | JUnit 없이 돌아가는 테스트 |

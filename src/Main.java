@@ -6,8 +6,8 @@ import java.io.PrintStream;
 import java.nio.charset.Charset;
 
 /**
- * 빵빵이의 고민 해결소.
- * 고민을 적으면 빵빵이가 해결책 하나를 랜덤으로 알려 준다. '끝'을 적으면 끝난다.
+ * 대훈이의 고민 해결소.
+ * 고민을 적으면 대훈이가 해결책 하나를 랜덤으로 알려 준다. '끝'을 적으면 끝난다.
  */
 public class Main {
 
@@ -15,12 +15,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in, inputCharset()));
-        run(in, System.out, new BbangBbangi());
+        run(in, System.out, new Daehuni());
     }
 
-    static void run(BufferedReader in, PrintStream out, BbangBbangi bbangBbangi) throws IOException {
-        out.println("=== 빵빵이의 고민 해결소 ===");
-        out.println("고민을 적어 주면 빵빵이가 해결책을 알려 줄게!");
+    static void run(BufferedReader in, PrintStream out, Daehuni daehuni) throws IOException {
+        out.println("=== 대훈이의 고민 해결소 ===");
+        out.println("고민을 적어 주면 대훈이가 해결책을 알려 줄게!");
 
         while (true) {
             out.println();
@@ -37,11 +37,11 @@ public class Main {
                 break;
             }
 
-            out.println("빵빵이: " + bbangBbangi.reply(worry));
+            out.println("대훈이: " + daehuni.reply(worry));
         }
 
         out.println();
-        out.println("빵빵이: 다음에 또 고민 생기면 와! 뿡!");
+        out.println("대훈이: 다음에 또 고민 생기면 와! 뿡!");
     }
 
     /**
