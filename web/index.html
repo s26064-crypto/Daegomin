@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대훈이의 고민 해결소</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>대훈이의 고민 해결소</h1>
+  <p class="sub">고민을 적으면 대훈이가 해결책을 알려 줄게</p>
+  <form id="form" autocomplete="off">
+    <input id="worry" placeholder="예) 내가 연애를 할 수 있을까요?" aria-label="고민" autofocus>
+    <button>물어보기</button>
+  </form>
+  <section class="card" id="card" aria-live="polite">
+    <p class="question" id="question" hidden></p>
+    <p class="answer" id="answer">대훈이: 무슨 고민 있어? 적어 봐!</p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

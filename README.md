@@ -1,6 +1,6 @@
 # 대훈이의 고민 해결소
 
-고민을 적으면 대훈이가 해결책 하나를 랜덤으로 알려 주는 자바 프로그램이에요. 창(화면) 버전과 콘솔 버전이 있어요.
+고민을 적으면 대훈이가 해결책 하나를 랜덤으로 알려 주는 자바 프로그램이에요. 사이트 버전, 창(화면) 버전, 콘솔 버전이 있어요.
 고민 내용과 상관없이 110개의 답변 중 하나가 나오고, 같은 답은 연달아 나오지 않아요.
 
 ```
@@ -18,6 +18,14 @@ JDK 17 이상이 필요해요. 먼저 컴파일하고:
 ```bash
 javac -d out src/*.java
 ```
+
+**사이트 버전:** 프로젝트 폴더에서 서버를 켜고, 브라우저로 http://localhost:8080 에 들어가요. 끄려면 `Ctrl+C`.
+
+```bash
+java -cp out DaehuniServer
+```
+
+자바 서버가 `web` 폴더의 화면(HTML, CSS, JS)을 보여 주고, 버튼을 누르면 JS가 서버의 `/answer`에 물어봐서 자바(`Daehuni`)가 고른 대답을 받아 와요.
 
 **창 버전:** 고민을 적고 엔터를 치거나 `물어보기`를 누르면 돼요.
 
@@ -42,6 +50,8 @@ java -cp out DaehuniTest
 
 | 파일 | 하는 일 |
 |------|---------|
+| `src/DaehuniServer.java` | 사이트 버전 서버: 화면 파일과 `/answer` 대답 |
+| `web/index.html`, `web/style.css`, `web/app.js` | 사이트 화면 |
 | `src/DaehuniWindow.java` | 창 버전 (Swing) |
 | `src/RoundButton.java` | 알약 모양 둥근 버튼 |
 | `src/RoundTextField.java` | 알약 모양 입력칸 (예시 문구, 클릭하면 파란 테두리) |
