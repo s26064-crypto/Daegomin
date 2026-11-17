@@ -131,6 +131,14 @@ public class BbangBbangi {
         this.random = random;
     }
 
+    /** 고민에 대한 빵빵이의 대답. 고민이 비어 있으면 답을 뽑지 않고 다시 물어본다. */
+    public String reply(String worry) {
+        if (worry == null || worry.isBlank()) {
+            return "고민을 적어야 대답해 주지!";
+        }
+        return "\"" + answer() + "\"";
+    }
+
     /** 답변 하나를 랜덤으로 고른다. 바로 전에 나온 답은 다시 고르지 않는다. */
     public String answer() {
         int index;

@@ -36,12 +36,8 @@ public class Main {
             if (worry.equals(QUIT_WORD)) {
                 break;
             }
-            if (worry.isEmpty()) {
-                out.println("빵빵이: 고민을 적어야 대답해 주지!");
-                continue;
-            }
 
-            out.println("빵빵이: \"" + bbangBbangi.answer() + "\"");
+            out.println("빵빵이: " + bbangBbangi.reply(worry));
         }
 
         out.println();

@@ -1,6 +1,6 @@
 # 빵빵이의 고민 해결소
 
-고민을 적으면 빵빵이가 해결책 하나를 랜덤으로 알려 주는 자바 콘솔 프로그램이에요.
+고민을 적으면 빵빵이가 해결책 하나를 랜덤으로 알려 주는 자바 프로그램이에요. 창(화면) 버전과 콘솔 버전이 있어요.
 고민 내용과 상관없이 110개의 답변 중 하나가 나오고, 같은 답은 연달아 나오지 않아요.
 
 ```
@@ -13,14 +13,23 @@
 
 ## 실행 방법
 
-JDK 17 이상이 필요해요.
+JDK 17 이상이 필요해요. 먼저 컴파일하고:
 
 ```bash
 javac -d out src/*.java
-java -cp out Main
 ```
 
-`끝`을 입력하면 프로그램이 끝나요.
+**창 버전:** 고민을 적고 엔터를 치거나 `물어보기`를 누르면 돼요.
+
+```bash
+java -cp out BbangBbangiWindow
+```
+
+**콘솔 버전:** `끝`을 입력하면 끝나요.
+
+```bash
+java -cp out Main
+```
 
 ## 테스트
 
@@ -33,6 +42,7 @@ java -cp out BbangBbangiTest
 
 | 파일 | 하는 일 |
 |------|---------|
-| `src/Main.java` | 고민을 입력받고 빵빵이 답을 출력하는 반복 |
-| `src/BbangBbangi.java` | 답변 목록과 랜덤 뽑기 |
+| `src/BbangBbangiWindow.java` | 창 버전 (Swing) |
+| `src/Main.java` | 콘솔 버전: 고민을 입력받고 빵빵이 답을 출력하는 반복 |
+| `src/BbangBbangi.java` | 답변 목록, 랜덤 뽑기, 고민에 대한 대답 |
 | `test/BbangBbangiTest.java` | JUnit 없이 돌아가는 테스트 |

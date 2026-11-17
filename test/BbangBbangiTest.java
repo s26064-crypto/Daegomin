@@ -25,6 +25,10 @@ public class BbangBbangiTest {
         blankInputAsksAgain();
         quitWordEndsEvenWithSpaces();
         endOfInputEndsCleanly();
+        replyAsksAgainWhenBlank();
+        replyQuotesOneOfTheAnswers();
+        windowShowsTheQuestionAndAnAnswer();
+        windowAsksAgainOnBlank();
 
         if (failures > 0) {
             System.out.println("실패한 테스트: " + failures + "개");
@@ -91,6 +95,35 @@ public class BbangBbangiTest {
         String output = runWith("고민 하나\n");
         check(count(output, "빵빵이: \"") == 1, "입력이 끝나기 전까지 답한다");
         check(output.contains("다음에 또 고민 생기면 와!"), "입력이 끝나도 인사하고 깔끔하게 끝난다");
+    }
+
+    static void replyAsksAgainWhenBlank() {
+        String reply = new BbangBbangi(new Random(1)).reply("   ");
+        check(reply.equals("고민을 적어야 대답해 주지!"), "빈 고민에는 다시 물어본다");
+    }
+
+    static void replyQuotesOneOfTheAnswers() {
+        BbangBbangi bbangBbangi = new BbangBbangi(new Random(1));
+        String reply = bbangBbangi.reply("시험 잘 볼 수 있을까?");
+        boolean quoted = reply.startsWith("\"") && reply.endsWith("\"");
+        String inside = reply.substring(1, reply.length() - 1);
+        check(quoted && bbangBbangi.answers().contains(inside), "대답은 답변 하나를 따옴표로 감싼 것이다");
+    }
+
+    static void windowShowsTheQuestionAndAnAnswer() {
+        BbangBbangiWindow window = new BbangBbangiWindow(new BbangBbangi(new Random(1)));
+        window.worryField.setText("  내가 연애를 할 수 있을까요?  ");
+        window.ask();
+        String shown = window.answerArea.getText();
+        check(shown.startsWith("Q. 내가 연애를 할 수 있을까요?\n\n빵빵이: \""), "화면에 질문과 빵빵이 대답이 나온다");
+        check(window.worryField.getText().isEmpty(), "물어본 뒤 입력칸이 비워진다");
+    }
+
+    static void windowAsksAgainOnBlank() {
+        BbangBbangiWindow window = new BbangBbangiWindow(new BbangBbangi(new Random(1)));
+        window.worryField.setText("   ");
+        window.ask();
+        check(window.answerArea.getText().equals("빵빵이: 고민을 적어야 대답해 주지!"), "화면에서도 빈 고민이면 다시 물어본다");
     }
 
     private static String runWith(String input) throws IOException {
